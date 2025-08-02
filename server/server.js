@@ -5,8 +5,10 @@ dotenv.config();
 
 const server = express();
 
+server.set("view engine", 'ejs');
+
 server.get('/', (req, res) => {
-    res.send("Welcome to MediBookQ API");
+    res.render('index');
 });
 
 server.listen(4000, () => {
