@@ -5,14 +5,14 @@ const router = express.Router();
 const validationMiddleware = require('../utils/validationMiddleware');
 
 router.post('/register/send-otp',
-    body('email').trim().isEmail().withMessage('A valid email is required'),
+    body('email').isEmail().withMessage('A valid email is required'),
     validationMiddleware(validationResult),
     userController.sendOtp
 );
 
 router.post('/register/verify-otp',
-    body('email').trim().isEmail().withMessage('A valid email is required'),
-    body('otp').trim().isLength({ min: 6, max: 6 }),
+    body('email').isEmail().withMessage('A valid email is required'),
+    body('otp').isLength({ min: 6, max: 6 }),
     validationMiddleware(validationResult),
     userController.verifyOtp
 )
