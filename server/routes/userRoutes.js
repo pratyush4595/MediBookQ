@@ -15,6 +15,14 @@ router.post('/register/verify-otp',
     body('otp').isLength({ min: 6, max: 6 }),
     validationMiddleware(validationResult),
     userController.verifyOtp
-)
+);
+
+router.post('/register/complete-registration',
+    body('email').isEmail().withMessage('A valid email is required'),
+    body('username').isLength({ min: 5 }),
+    body('password').isLength({ min: 6 }),
+    validationMiddleware(validationResult),
+    userController.completeRegistration
+);
 
 module.exports.router = router;
