@@ -99,8 +99,10 @@ module.exports.completeRegistration = async (req, res) => {
 
         await userModel.findOneAndUpdate(
             { email },
-            { name, username, password: hashedPassword, }
+            { name, username, password: hashedPassword }
         );
+
+        await sendEmail(email, 'Welcome to MediBookQ 🎉', emailTemplates.welcomeTemplate(name));
 
         res.status(201).json({ message: 'Resistration completed successfully' });
     } catch (error) {
