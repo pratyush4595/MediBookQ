@@ -20,6 +20,12 @@ module.exports.sendOtp = async (req, res) => {
         if (!user) {
             user = await userModel.create({ email, otp: hashedOTP, otpExpiry });
         } else {
+
+            // Check wheather the user already completed the registration
+            if (user.usrename && user.password) {
+                return res.status(400).json({ message: 'Email already registered' });
+            }
+
             await userModel.findOneAndUpdate(
                 { email },
                 { otp: hashedOTP, otpExpiry }
@@ -58,12 +64,47 @@ module.exports.verifyOtp = async (req, res) => {
 
         await userModel.findOneAndUpdate(
             { email },
-            { isVerified: true, otp: undefined, otpExpiry: undefined }
+            {
+                isVerified: true,
+                $unset: { otp: "", otpExpiry: "" }
+            }
         );
 
         res.status(200).json({ message: 'OTP verified successfully' });
     } catch (error) {
         console.error('Error: ', error);
         res.status(500).json({ message: 'Failed to verify OTP' });
+    }
+};
+
+// 3. Complete registration
+module.exports.completeRegistration = async (req, res) => {
+    const { email, name, username, password } = req.body;
+
+    try {
+        const user = await userModel.findOne({ email });
+
+        if (!user || !user.isVerified) {
+            return res.status(400).json({ message: 'Email not verified' })
+        }
+
+        // Check if username is already taken
+        const existingUsername = await userModel.findOne({ username });
+        if (existingUsername) {
+            return res.status(400).json({ message: 'Username already taken' });
+        }
+
+        // Hash password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        await userModel.findOneAndUpdate(
+            { email },
+            { name, username, password: hashedPassword, }
+        );
+
+        res.status(201).json({ message: 'Resistration completed successfully' });
+    } catch (error) {
+        console.error('Complete registration error: ', error);
+        res.status(500).json({ message: 'Failed to complete registration' });
     }
 };
