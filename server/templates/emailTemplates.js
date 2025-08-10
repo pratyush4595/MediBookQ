@@ -38,11 +38,34 @@ module.exports.otpTemplate = (otp) => {
 module.exports.welcomeTemplate = (name) => {
     return `
         <div style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; color: #333; line-height: 1.6;">
-            <h2 style="color: #2b6cb0; text-align: center;">Welcome to MediBookQ!</h2>
-            <p>Hi ${name},</p>
-            <p>We’re excited to have you on board! MediBookQ is here to make booking your medical appointments fast and easy.</p>
-            <p>Start exploring now and make your healthcare journey seamless.</p>
-            <p>Thank you,<br/><strong>The MediBookQ Team</strong></p>
+            <div style="text-align: center; padding-bottom: 20px;">
+                <a href="[Website Link]" target="_blank" style="text-decoration: none;">
+                    <img src="cid:logo.png" alt="MediBookQ Logo" height="40" style="vertical-align: middle;" />
+                </a>
+            </div>
+
+            <div style="border-top: 1px solid #e0e0e0; padding-top: 20px;">
+                <p style="margin: 0 0 15px;">
+                    Hello <strong>${name}</strong>,
+                </p>
+
+                <p style="margin: 0 0 15px;">
+                    We’re excited to have you on board. Your MediBookQ account has been created successfully, and you can now enjoy quick and easy medical bookings at your fingertips.
+                </p>
+
+                <p style="margin: 0 0 20px; text-align: center;">
+                    <a href="[Dashboard Link]" target="_blank" 
+                    style="display: inline-block; background-color: #2b6cb0; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;">
+                        Go to Dashboard
+                    </a>
+                </p>
+
+                <p style="font-size: 13px; color: #888;">
+                    If you didn’t sign up for this account, please contact our support team immediately.
+                </p>
+
+                <p style="margin-top: 25px;">Thank you,<br /><strong>The MediBookQ Team</strong></p>
+            </div>
         </div>
     `;
 };
@@ -50,12 +73,38 @@ module.exports.welcomeTemplate = (name) => {
 module.exports.passwordResetTemplate = (resetLink) => {
     return `
         <div style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; color: #333; line-height: 1.6;">
-            <h2 style="color: #2b6cb0; text-align: center;">Password Reset Request</h2>
-            <p>Hello,</p>
-            <p>We received a request to reset your MediBookQ account password. Click the link below to reset it:</p>
-            <p style="text-align: center;"><a href="${resetLink}" style="background: #2b6cb0; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Reset Password</a></p>
-            <p>If you did not request this, you can safely ignore this email.</p>
-            <p>Thank you,<br/><strong>The MediBookQ Team</strong></p>
+            <div style="text-align: center; padding-bottom: 20px;">
+                <a href="[Website Link]" target="_blank" style="text-decoration: none;">
+                    <img src="cid:logo.png" alt="MediBookQ Logo" height="40" style="vertical-align: middle;" />
+                </a>
+            </div>
+
+            <div style="border-top: 1px solid #e0e0e0; padding-top: 20px;">
+                <p style="margin: 0 0 15px;">
+                    Hello,
+                </p>
+
+                <p style="margin: 0 0 15px;">
+                    We received a request to reset your MediBookQ account password. Click the button below to create a new password:
+                </p>
+
+                <p style="margin: 0 0 20px; text-align: center;">
+                    <a href="${resetLink}" target="_blank" 
+                    style="display: inline-block; background-color: #2b6cb0; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;">
+                        Reset My Password
+                    </a>
+                </p>
+
+                <p style="margin: 0 0 10px;">
+                    This password reset link will expire in <strong>30 minutes</strong>. If you did not request a password reset, you can safely ignore this email.
+                </p>
+
+                <p style="font-size: 13px; color: #888;">
+                    For your security, MediBookQ will never ask for your password or login credentials over email, phone, or message.
+                </p>
+
+                <p style="margin-top: 25px;">Thank you,<br /><strong>The MediBookQ Team</strong></p>
+            </div>
         </div>
     `;
 };
