@@ -1,7 +1,8 @@
+import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './App.css'
-import { useEffect } from 'react';
+import AppRoutes from './route/AppRoutes';
 
 const App = () => {
 
@@ -15,7 +16,7 @@ const App = () => {
   }, []);
 
   return (
-    <h2 className='text-center'>Welcome to MediBookQ</h2>
+    <AppRoutes />
   );
 }
 

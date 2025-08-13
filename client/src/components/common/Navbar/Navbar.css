@@ -1,0 +1,32 @@
+/* Main Navbar Styles */
+.search-box input {
+    width: 280px;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    width: 320px;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Sub Navbar Styles */
+.sub-navbar {
+    background-color: var(--bs-body-bg);
+}
+
+.subnav-link {
+    text-decoration: none;
+    color: var(--bs-body-color);
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.subnav-link:hover {
+    background-color: var(--bs-secondary-bg);
+}
+
+.subnav-link.active {
+    border-bottom-color: var(--bs-primary);
+    color: var(--bs-primary);
+}
