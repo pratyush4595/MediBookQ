@@ -1,0 +1,57 @@
+:root {
+    /* Brand Colors */
+    --primary: #0096c7;
+    /* Main Brand Color */
+    --primary-dark: #0077a3;
+    /* Hover / Active */
+    --primary-light: #5ec2e7;
+    /* Accents */
+
+    /* Other Accent Colors */
+    --success: #4caf50;
+    --warning: #ffb703;
+    --danger: #d62828;
+
+    /* Text and Background */
+    --body-bg: #ffffff;
+    --body-color: #212529;
+
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--body-bg);
+    color: var(--body-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Theme */
+[data-bs-theme="dark"] {
+    --body-bg: #121212;
+    --body-color: #f8f9fa;
+}
+
+[data-bs-theme="dark"] .bg-body-tertiary {
+    background-color: #1e1e1e !important;
+}
+
+[data-bs-theme="dark"] .navbar,
+[data-bs-theme="dark"] .dropdown-menu {
+    background-color: #1e1e1e !important;
+}
+
+[data-bs-theme="dark"] .form-control,
+[data-bs-theme="dark"] .form-select {
+    background-color: #2a2a2a;
+    color: #f8f9fa;
+    border-color: #444;
+}
+
+a {
+    color: var(--primary);
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
