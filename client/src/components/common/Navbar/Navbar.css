@@ -1,32 +1,213 @@
-/* Main Navbar Styles */
-.search-box input {
-    width: 280px;
-    transition: all 0.3s ease;
+/* Shell to get the rounded dark card look like the screenshot */
+.mbq-card {
+    background: transparent;
+    /* bg comes from children (bg-body-tertiary) */
 }
 
-.search-box input:focus {
-    width: 320px;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
-}
-
-/* Sub Navbar Styles */
-.sub-navbar {
-    background-color: var(--bs-body-bg);
-}
-
-.subnav-link {
+/* ===== Brand ===== */
+.brand-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+    letter-spacing: -0.5px;
     text-decoration: none;
-    color: var(--bs-body-color);
+    display: inline-flex;
+    line-height: 1;
+}
+
+.brand-m {
+    color: var(--accent);
+}
+
+.brand-blue {
+    /* soft → deep blue gradient like the mock */
+    background: linear-gradient(90deg, #4ea5ff 0%, var(--primary) 65%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.heartbeat-icon {
+    font-size: 1rem;
+    margin-left: 3px;
+    color: var(--accent);
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    20% {
+        transform: scale(1.2);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    cursor: pointer;
+}
+
+.switch {
+    width: 38px;
+    height: 22px;
+    background-color: rgb(218, 219, 219);
+    border-radius: 50px;
+    position: relative;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.switch.active {
+    background-color: #0dcaf0;
+}
+
+.thumb {
+    width: 18px;
+    height: 18px;
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #fff;
+    transition: transform 0.3s ease-in-out, background-color 0.3s;
+}
+
+.switch.active .thumb {
+    transform: translateX(16px);
+    background-color: #fff;
+    color: #000;
+}
+
+/* ===== Search (centered pill) ===== */
+.mbq-search {
+    position: relative;
+    width: min(420px, 90%);
+}
+
+.mbq-search-input {
+    border-radius: 0.75rem;
+    padding-right: 2.25rem;
+    /* room for icon */
+    padding-left: 1rem;
+    border: none;
+    outline: none;
+    height: 42px;
+    box-shadow: none;
+}
+
+[data-bs-theme="light"] .mbq-search-input {
+    background-color: #f1f3f5;
+    color: #212529;
+}
+
+[data-bs-theme="dark"] .mbq-search-input {
+    background-color: #2a2a2a;
+    /* matches theme.css control bg */
+    color: #f8f9fa;
+}
+
+.mbq-search-input::placeholder {
+    opacity: 0.8;
+}
+
+.mbq-search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.15rem;
+    pointer-events: none;
+    opacity: 0.85;
+}
+
+/* ===== Right-side Icon Buttons ===== */
+.icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: none;
+    background: transparent;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity .2s ease, background-color .2s ease;
+    font-size: 1.25rem;
+    color: rgba(33, 37, 41, 0.7);
+}
+
+[data-bs-theme="dark"] .icon-btn {
+    color: rgba(248, 249, 250, 0.75);
+}
+
+.icon-btn:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+[data-bs-theme="dark"] .icon-btn:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+/* ===== Divider between nav and tabs ===== */
+.mbq-divider {
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+[data-bs-theme="dark"] .mbq-divider {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* ===== Sub Navbar (Tabs) ===== */
+.mbq-subnav {
+    text-align: center;
+}
+
+.mbq-sub-link {
+    padding: 1rem 1.2rem;
+    border-radius: 6px 6px 0 0;
+    text-decoration: none;
     font-weight: 500;
-    border-bottom: 3px solid transparent;
-    transition: all 0.3s ease;
+    color: var(--body-color);
+    background-color: transparent;
+    transition: all 0.25s ease-in-out;
+    border: 1px solid transparent;
 }
 
-.subnav-link:hover {
-    background-color: var(--bs-secondary-bg);
+.mbq-sub-link:hover {
+    background-color: rgba(30, 136, 229, 0.08);
+    border-color: rgba(30, 136, 229, 0.2);
 }
 
-.subnav-link.active {
-    border-bottom-color: var(--bs-primary);
-    color: var(--bs-primary);
+.mbq-sub-link.active {
+    /* active is bright */
+    background-color: var(--body-bg);
+    color: var(--primary) !important;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+    font-weight: 600;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 991.98px) {
+    .mbq-search {
+        width: 100%;
+    }
+
+    .navbar-nav {
+        justify-content: space-around !important;
+    }
 }
