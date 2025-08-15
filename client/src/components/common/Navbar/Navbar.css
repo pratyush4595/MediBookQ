@@ -203,6 +203,10 @@
 
 /* ===== Responsive ===== */
 @media (max-width: 991.98px) {
+    .navbar-search {
+        display: none !important;
+    }
+
     .mbq-search {
         width: 100%;
     }

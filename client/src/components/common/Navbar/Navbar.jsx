@@ -56,9 +56,22 @@ const Navbar = () => {
                             <span className="navbar-toggler-icon"></span>
                         </button>
 
+                        {/* Mobile Search */}
+                        <form className="d-lg-none mt-3 mb-3 w-100 d-flex justify-content-center">
+                            <div className="mbq-search">
+                                <input
+                                    type="search"
+                                    className="form-control mbq-search-input"
+                                    placeholder="Search..."
+                                    aria-label="Search"
+                                />
+                                <i className="bi bi-search mbq-search-icon" aria-hidden="true"></i>
+                            </div>
+                        </form>
+
                         <div className="collapse navbar-collapse" id="mbqMainNav">
-                            {/* Center Search */}
-                            <form className="mx-lg-4 ms-lg-auto me-lg-4 mb-3 mb-lg-0 w-100 d-flex justify-content-center">
+                            {/* Desktop Center Search */}
+                            <form className="navbar-search mx-lg-4 ms-lg-auto me-lg-4 mb-3 mb-lg-0 w-100 d-flex justify-content-center">
                                 <div className="mbq-search">
                                     <input
                                         type="search"
@@ -83,7 +96,7 @@ const Navbar = () => {
                                     </Link>
                                 </li>
                                 <li className="nav-item d-none d-lg-block">
-                                    {/* Theme Switcher */}
+                                    {/* Desktop Theme Switcher */}
                                     <div className="theme-toggle" onClick={toggleTheme} title="Toggle Theme">
                                         <div className={`switch ${theme === 'dark' ? 'active' : ''}`}>
                                             <div className="thumb">
