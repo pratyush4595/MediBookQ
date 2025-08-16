@@ -1,0 +1,20 @@
+.coming-soon {
+    color: #43a047;
+    border-radius: 0.5rem;
+    padding: 4rem 2rem;
+    margin: 100px auto 2rem auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.coming-soon h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.coming-soon p {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    opacity: 0.95;
+}
