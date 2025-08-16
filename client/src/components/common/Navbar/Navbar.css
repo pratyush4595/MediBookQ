@@ -50,6 +50,24 @@
     }
 }
 
+/* Custom Toggler Button */
+.custom-toggler {
+    border: none;
+    background: none;
+    font-size: 1.6rem;
+    color: var(--bs-body-color);
+    transition: transform 0.2s ease-in-out;
+}
+
+.custom-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.custom-toggler.open {
+    transform: rotate(90deg);
+}
+
 /* Theme Toggle */
 .theme-toggle {
     cursor: pointer;

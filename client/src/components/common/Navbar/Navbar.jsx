@@ -6,6 +6,7 @@ import './Navbar.css';
 
 const Navbar = () => {
     const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [search, setSearch] = useState('');
     const location = useLocation();
 
@@ -16,6 +17,11 @@ const Navbar = () => {
 
     const toggleTheme = () => {
         setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+    }
+
+    // Mobile Toggler
+    const toggleMenu = () => {
+        setIsMenuOpen(prev => !prev);
     }
 
     return (
@@ -43,17 +49,18 @@ const Navbar = () => {
                             </div>
                         </div>
 
-                        {/* Mobile Toggler */}
+                        {/* Mobile Toggle Button */}
                         <button
-                            className="navbar-toggler border-0"
+                            className={`navbar-toggler custom-toggler`}
                             type="button"
+                            onClick={toggleMenu}
                             data-bs-toggle="collapse"
                             data-bs-target="#mbqMainNav"
                             aria-controls="mbqMainNav"
-                            aria-expanded="false"
+                            aria-expanded={isMenuOpen}
                             aria-label="Toggle navigation"
                         >
-                            <span className="navbar-toggler-icon"></span>
+                            <i className={`bi ${isMenuOpen ? 'bi-x-lg' : 'bi-list'}`}></i>
                         </button>
 
                         {/* Mobile Search */}
