@@ -90,6 +90,10 @@ const Navbar = () => {
                                         <i className="bi bi-person"></i>
                                     </Link>
                                 </li>
+                                {/* Vertical Divider */}
+                                <li className="d-lg-none nav-item">
+                                    <div className="vertical-divider"></div>
+                                </li>
                                 <li className="nav-item">
                                     <Link to="/pharmacy" className="icon-btn" title="Cart">
                                         <i className="bi bi-cart3"></i>

@@ -107,17 +107,6 @@
     box-shadow: none;
 }
 
-[data-bs-theme="light"] .mbq-search-input {
-    background-color: #f1f3f5;
-    color: #212529;
-}
-
-[data-bs-theme="dark"] .mbq-search-input {
-    background-color: #2a2a2a;
-    /* matches theme.css control bg */
-    color: #f8f9fa;
-}
-
 .mbq-search-input::placeholder {
     opacity: 0.8;
 }
@@ -149,27 +138,34 @@
     color: rgba(33, 37, 41, 0.7);
 }
 
-[data-bs-theme="dark"] .icon-btn {
-    color: rgba(248, 249, 250, 0.75);
-}
-
 .icon-btn:hover {
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.04);
 }
 
-[data-bs-theme="dark"] .icon-btn:hover {
-    background-color: rgba(255, 255, 255, 0.06);
+/* ===== Right-side Icon Mobile Vertical Divider ===== */
+.vertical-divider {
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(to bottom,
+            transparent,
+            var(--bs-divider-color, #1e88e5) 40%,
+            var(--bs-divider-color, #1e88e5) 60%,
+            transparent);
+    opacity: 0.7;
+    transition: opacity 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 1px;
+}
+
+.vertical-divider:hover {
+    opacity: 1;
+    box-shadow: 0 0 6px var(--bs-divider-color, #1e88e5);
 }
 
 /* ===== Divider between nav and tabs ===== */
 .mbq-divider {
     height: 1px;
     background-color: rgba(0, 0, 0, 0.12);
-}
-
-[data-bs-theme="dark"] .mbq-divider {
-    background-color: rgba(255, 255, 255, 0.12);
 }
 
 /* ===== Sub Navbar (Tabs) ===== */
@@ -213,5 +209,6 @@
 
     .navbar-nav {
         justify-content: space-around !important;
+        gap: 0 !important;
     }
 }
