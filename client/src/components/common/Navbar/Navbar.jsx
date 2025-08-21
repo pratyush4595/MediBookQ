@@ -120,7 +120,7 @@ const Navbar = () => {
                         </div>
                     </nav>
 
-                    {/* thin divider (matches screenshot) */}
+                    {/* Thin Divider */}
                     <div className="mbq-divider"></div>
 
                     {/* ===== Sub Navbar (Tabs) ===== */}
